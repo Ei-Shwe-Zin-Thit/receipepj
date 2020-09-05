@@ -24,7 +24,7 @@ class Controller extends BaseController
   //        $name = array('Cake','Pizza','Pie','Apple','Hot Dog');
           $receipe = Recipe::all();
           $name=Rocchio::getArray($receipe,'name');
-  //        return $name;
+        //  return $name;
           $original=Rocchio::getArray($receipe,'fav');
   //        $original = array(0,1,2,3);
   
@@ -112,7 +112,10 @@ class Controller extends BaseController
               array_push($final_result,$y[$i]);
   //            echo "<br>".$y[$i]. ":".$modified ."</br>";
           }
-          $performance=(count($relevant_res)/count($receipe))/count($receipe);
+          $a=count($relevant_res)-count($receipe);
+          $asq=$a*$a;
+          $res=($asq)/count($receipe);//
+          $performance=sqrt($res);
   
             return [
               'relevant_res'=>$relevant_res,

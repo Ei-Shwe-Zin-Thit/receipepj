@@ -22,14 +22,15 @@
         <header class="header">
             <img src="{{url('images/logo.png')}}" alt="Logo" class="header__logo">
             <a href="{{url('/')}}" class="" style="text-decoration: none;margin-left:-308px;margin-top: 70px;color:  #ff3064;"><h3 class="">Go To Home</h3></a>
-            <form class="search">
+            <form class="search" action="{{url('cook/search')}}">
+                @csrf
                 <!-- <input type="text" class="search__field" placeholder="Search over 1,000,000 recipes..."> -->
                 <select name="cat_id" id="" class="search__field">
                     @foreach($category as $item)
                         <option value="{{$item['id']}}">{{$item['cat_name']}}</option>
                     @endforeach
                 </select>
-                <button class="btn search__btn">
+                <button type="submit" class="btn search__btn">
                   <span>Search</span>
                 </button>
             </form>

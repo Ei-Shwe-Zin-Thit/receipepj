@@ -55,6 +55,7 @@ Route::get('cook','CookController@index');
 Route::get('cooking/{id}','CookController@indexcook');
 Route::post('cooking/{id}','CookController@indexcook');
 Route::post('favourite','CookController@favourite');
+Route::get('cook/search','CookController@search');
 
 }); 
 

@@ -25,6 +25,23 @@ class CookController extends Controller
         $favourite=Favourite::where('user_id',$user->id)->get();
         $obj=new Controller();
         $result=$obj->result();
+
+        // return $result;
+
+        return view('cook',compact('reciped','favourite','category','result'));
+    }
+
+    public function search(Request $request){
+        $category_id=$request->get('cat_id');
+        $reciped = Recipe::where('cat_id',$category_id)->get();
+        $user=Auth::user();
+        $category=Category::all();
+        $favourite=Favourite::where('user_id',$user->id)->get();
+        $obj=new Controller();
+        $result=$obj->result();
+
+        // return $reciped;
+
         return view('cook',compact('reciped','favourite','category','result'));
     }
 
@@ -52,12 +69,17 @@ class CookController extends Controller
         $count=$request->get('count');
         //return $count;
         $result=$count+1;
+        $res=Recipe::findOrfail($id);
         Recipe::findOrfail($id)->update([
-                'count'=>$result
+                'count'=>$res->count+1
             ]);
         $recipe = Recipe::find($id);
         $recipecat = Category::all();
-        return view('searchcook.showcook',compact('reciped','recipe','recipecat','favourite'));
+        $category=Category::all();
+        $obj=new Controller();
+        $result=$obj->result();
+
+        return view('searchcook.showcook',compact('result','reciped','category','recipe','recipecat','favourite'));
     }
 
     public function indexcount(Request $request,$id)
