@@ -1,7 +1,7 @@
 <div class="results">
     <ul class="results__list">
-        @foreach ($reciped as $value)
-            
+        @if(Session::get('reciped')!='')
+        @foreach (Session::get('reciped') as $value)
         <li>
             <form action="{{url('cooking/'.$value['id'])}}" method="POST">
                 @csrf
@@ -13,7 +13,8 @@
                         <img src="{{asset('image/'.$value['img'])}}" alt="Test">
                     </figure>                
                     <div class="results__data">
-                        <h4 class="results__name">{{$value['name']}}</h4>
+            {{-- {{Session::get('reciped')}} --}}
+            <h4 class="results__name">{{$value['name']}}</h4>
                         <p class="results__author">{{$value['publisher']}}</p>
                     </div>
                 </a>    
@@ -30,9 +31,9 @@
                 </div>
             </a> --}}
         </li>
-
+       
         @endforeach      
-        
+    
     </ul>
 
     <div class="results__pages">
@@ -48,4 +49,5 @@
         </div>
         
     </div>
+    @endif
 </div>

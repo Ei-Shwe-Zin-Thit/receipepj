@@ -24,12 +24,13 @@
             <a href="{{url('/')}}" class="" style="text-decoration: none;margin-left:-308px;margin-top: 70px;color:  #ff3064;"><h3 class="">Go To Home</h3></a>
             <form class="search" action="{{url('cook/search')}}">
                 @csrf
-                <!-- <input type="text" class="search__field" placeholder="Search over 1,000,000 recipes..."> -->
-                <select name="cat_id" id="" class="search__field">
+                <input type="text" name="cat_name" class="search__field" placeholder="Search over 1,000,000 recipes...">
+                {{--<select name="cat_id" id="" class="search__field">
                     @foreach($category as $item)
                         <option value="{{$item['id']}}">{{$item['cat_name']}}</option>
                     @endforeach
-                </select>
+                </select>--}}
+            
                 <button type="submit" class="btn search__btn">
                   <span>Search</span>
                 </button>
@@ -37,7 +38,7 @@
             <div class="likes">
                 <div class="likes__field">
                      
-                        <img src="{{url('images/heart.png')}}" style="width: 30px;height: 30px;margin-left: -20px;" alt="">
+                        {{-- <img src="{{url('images/heart.png')}}" style="width: 30px;height: 30px;margin-left: -20px;" alt=""> --}}
                     
                 </div>
                 <div class="likes__panel">

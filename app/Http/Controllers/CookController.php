@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Recipe;
 use App\Favourite;
-//use Session;
+use Session;
 use Illuminate\Support\Facades\Auth;
 
 class CookController extends Controller
@@ -20,20 +20,42 @@ class CookController extends Controller
     {
 //        return "Hello";
         $reciped = Recipe::all();
+        
+        $reciped=Session::put('reciped','');
+      
         $user=Auth::user();
         $category=Category::all();
         $favourite=Favourite::where('user_id',$user->id)->get();
         $obj=new Controller();
         $result=$obj->result();
+        $relevant_res = Recipe::whereIn('id',$result['relevant_res'])->get();
+        Session::put('relevant_res',$relevant_res);
 
+        $non_relevant_res = Recipe::whereIn('id',$result['non_relevant_res'])->get();
+        Session::put('non_relevant_res',$non_relevant_res);
+
+        $final_result = Recipe::whereIn('id',$result['final_result'])->get();
+        Session::put('final_result',$final_result);
+
+        // dd($relevant_res,$non_relevant_res,$final_result);
         // return $result;
 
         return view('cook',compact('reciped','favourite','category','result'));
     }
 
+
     public function search(Request $request){
-        $category_id=$request->get('cat_id');
-        $reciped = Recipe::where('cat_id',$category_id)->get();
+        $cat_name=$request->cat_name;
+        // $category_id=$request->get('cat_id');
+        // $category_name=Category::findorfail($category_id);
+        
+        
+        $reciped = Recipe::where('name','like','%'.$cat_name.'%')
+        ->orwhere('ingredient','like','%'.$cat_name.'%')
+        ->orwhere('ingredient','like','%'.$cat_name.'%')
+
+        ->get();
+        $reciped=Session::put('reciped',$reciped);
         $user=Auth::user();
         $category=Category::all();
         $favourite=Favourite::where('user_id',$user->id)->get();
@@ -78,7 +100,13 @@ class CookController extends Controller
         $category=Category::all();
         $obj=new Controller();
         $result=$obj->result();
-
+        
+        $relevant_res = Recipe::whereIn('id',$result['relevant_res'])->get();
+        Session::put('relevant_res',$relevant_res);
+        $non_relevant_res = Recipe::whereIn('id',$result['non_relevant_res'])->get();
+        Session::put('non_relevant_res',$non_relevant_res);
+        $final_result = Recipe::whereIn('id',$result['final_result'])->get();
+        Session::put('final_result',$final_result);
         return view('searchcook.showcook',compact('result','reciped','category','recipe','recipecat','favourite'));
     }
 
@@ -170,6 +198,7 @@ class CookController extends Controller
             'user_id'=>$user_id,
             'recipe_id'=>$recipe_id
         ]);
+        Recipe::findorfail($recipe_id)->increment('fav');
 
         return redirect()->back();
 

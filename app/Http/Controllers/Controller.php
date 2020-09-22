@@ -23,7 +23,7 @@ class Controller extends BaseController
       #name data and original array for each iteams
   //        $name = array('Cake','Pizza','Pie','Apple','Hot Dog');
           $receipe = Recipe::all();
-          $name=Rocchio::getArray($receipe,'name');
+          $name=Rocchio::getArray($receipe,'id');
         //  return $name;
           $original=Rocchio::getArray($receipe,'fav');
   //        $original = array(0,1,2,3);
@@ -117,7 +117,9 @@ class Controller extends BaseController
           $res=($asq)/count($receipe);//
           $performance=sqrt($res);
   
-            return [
+            return 
+            
+            [
               'relevant_res'=>$relevant_res,
               'non_relevant_res'=>$non_relevant_res,
               'final_result'=>$final_result,

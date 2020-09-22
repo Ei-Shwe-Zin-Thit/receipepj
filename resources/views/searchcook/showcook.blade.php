@@ -3,7 +3,7 @@
 @section('cookcontent')
 
 
-        <div class="recipe">
+      
 
             
             <figure class="recipe__fig">
@@ -29,12 +29,6 @@
                     <span class="recipe__info-data recipe__info-data--people">{{$recipe['serving']}}</span>
                     <span class="recipe__info-text"> servings</span>
 
-                    {{-- <div class="recipe__info-buttons">
-                               <a href="" style="text-decoration: none;"><i class="flaticon-add-interface-circular-symbol-with-plus-sign"></i></a> 
-                                <a href="" style="text-decoration: none;"><i class="flaticon-remove"></i>
-                                </a>
-                    </div> --}}
-
                 </div>
             <form action="{{url('favourite')}}" method="POST"> 
                 @csrf  
@@ -49,75 +43,6 @@
 
 
             <div class="recipe__ingredients">
-                {{-- <ul class="recipe__ingredient-list">
-                    <li class="recipe__item">
-                        <svg class="recipe__icon">
-                            <use href="img/icons.svg#icon-check"></use>
-                        </svg>
-                        <div class="recipe__count">1000</div>
-                        <div class="recipe__ingredient">
-                            <span class="recipe__unit">g</span>
-                            pasta
-                        </div>
-                    </li>
-
-                    <li class="recipe__item">
-                        <svg class="recipe__icon">
-                            <use href="img/icons.svg#icon-check"></use>
-                        </svg>
-                        <div class="recipe__count">1/2</div>
-                        <div class="recipe__ingredient">
-                            <span class="recipe__unit">cup</span>
-                            ricotta cheese
-                        </div>
-                    </li>
-
-                    <li class="recipe__item">
-                        <svg class="recipe__icon">
-                            <use href="img/icons.svg#icon-check"></use>
-                        </svg>
-                        <div class="recipe__count">1</div>
-                        <div class="recipe__ingredient">
-                            <span class="recipe__unit"></span>
-                            can of tomatoes, whole or crushed
-                        </div>
-                    </li>
-
-
-                    <li class="recipe__item">
-                        <svg class="recipe__icon">
-                            <use href="img/icons.svg#icon-check"></use>
-                        </svg>
-                        <div class="recipe__count">1</div>
-                        <div class="recipe__ingredient">
-                            <span class="recipe__unit"></span>
-                            can tuna packed in olive oil
-                        </div>
-                    </li>
-
-                    <li class="recipe__item">
-                        <svg class="recipe__icon">
-                            <use href="img/icons.svg#icon-check"></use>
-                        </svg>
-                        <div class="recipe__count">1/2</div>
-                        <div class="recipe__ingredient">
-                            <span class="recipe__unit">cup</span>
-                            grated parmesan cheese
-                        </div>
-                    </li>
-
-                    <li class="recipe__item">
-                        <svg class="recipe__icon">
-                            <use href="img/icons.svg#icon-check"></use>
-                        </svg>
-                        <div class="recipe__count">1/4</div>
-                        <div class="recipe__ingredient">
-                            <span class="recipe__unit">cup</span>
-                            fresh basil, chopped or torn
-                        </div>
-                    </li>
-                </ul> --}}
-
                 <div>
                     <h1 class="display-3"><u>Ingredient</u></h1>
                     <p>{!! $recipe['ingredient'] !!}</p>                    
@@ -134,60 +59,9 @@
 
        
             
-        </div>
+        
 
-
-
-        <div class="shopping">
-            <h2 class="heading-2">Viewer Count</h2>
-            <!-- <h4>PASTA WITH TOMATO CREAM SAUCE</h4>
-            <div class="form-control">
-                <h4 class="text-success">Viewer 100</h4>
-            </div> -->
-
-
-                <br><br>
-              <div class="div">
-                    <h2 style="text-decoration: underline">Relevant Result</h2>
-                    <ol style="font-size: 15px">
-                       @foreach ($result['relevant_res'] as $item)
-                           <ul>{{$item}}</ul>
-                       @endforeach
-                    </ol>
-                </div>
-
-
-                  <br><br>
-              <div class="div">
-                    <h2 style="text-decoration: underline">Non-Relevant Result</h2>
-                    <ol style="font-size: 15px">
-                       @foreach ($result['non_relevant_res'] as $item)
-                           <ul>{{$item}}</ul>
-                       @endforeach
-                    </ol>
-                </div>
-
-
-                  <br><br>
-              <div class="div">
-                    <h2 style="text-decoration: underline">Final Result</h2>
-                    <ol style="font-size: 15px">
-                       @foreach ($result['final_result'] as $item)
-                           <ul>{{$item}}</ul>
-                       @endforeach
-                    </ol>
-                </div>
-
-                <br><br>
-              <div class="div">
-                    <h2 style="text-decoration: underline">Accuracy Rate</h2>
-                    <ol style="font-size: 15px">
-                        {{$result['performance']}}
-                    </ol>
-                </div>
-
-
-        </div>
+       
 
 
         
