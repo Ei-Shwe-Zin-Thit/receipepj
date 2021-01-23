@@ -4,6 +4,7 @@
 	</header>
 
 	<body>
+    
 		<form class="contact100-form validate-form col-6" method="post" action="{{url('/create')}}">
 			{{csrf_field()}}
         <span class="contact100-form-title">
@@ -38,5 +39,6 @@
           </button>
         </div>
       </form>
+
 	</body>
 </html>

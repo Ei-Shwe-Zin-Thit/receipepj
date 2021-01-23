@@ -84,7 +84,7 @@ class RecipeController extends Controller
      */
     public function show()
     {
-        $recipe = Recipe::all();
+        $recipe = Recipe::paginate('4');
         $recipecat = Category::all();
         return view('adminlayout.show_recipe',compact('recipe','recipecat'));
     }

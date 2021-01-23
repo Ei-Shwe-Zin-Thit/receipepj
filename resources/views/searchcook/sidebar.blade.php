@@ -44,7 +44,7 @@
             <span>Page 1</span>
         </button>
         <button class="btn-inline results__btn--next">
-            <span>Page 3</span>
+            <span>Page 2</span>
         </button>
         </div>
         

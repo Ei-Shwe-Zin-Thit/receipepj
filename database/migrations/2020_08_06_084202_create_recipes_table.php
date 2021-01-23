@@ -21,8 +21,8 @@ class CreateRecipesTable extends Migration
             $table->longText('ingredient');
             $table->longText('howtocook');
             $table->smallInteger('serving');
-            $table->integer('fav');
-            $table->integer('count');
+            $table->integer('fav')->default('0');
+            $table->integer('count')->default('0');
             $table->string('publisher');
             $table->integer('cat_id');
             $table->timestamps();

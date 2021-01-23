@@ -586,6 +586,7 @@ html, body{ height: 100%; }
 -------------------------------------------------------------------*/
 
 .about-main{
+    margin-top: 10px;
 	background:#E6E6E6;
 }
 .pad-top-100{
@@ -611,6 +612,7 @@ html, body{ height: 100%; }
 .about-images {
     text-align: center;
     position: relative;
+
 }
 
 .about-main h3{

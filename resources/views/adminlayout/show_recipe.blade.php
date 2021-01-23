@@ -38,7 +38,7 @@
             </tbody>       
         </div>
       </div>
-
     </div>
+    {{$recipe}}
 
 @endsection

@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   
+    
     <link rel="stylesheet" href="{{url('style1.css')}}">
-     
+    
     <link rel="shortcut icon" href="{{url('img/favicon.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{url('font/flaticon.css')}}">
     
@@ -17,7 +17,7 @@
 
 
 <body>
-
+    
     <div class="container p-5">
         <header class="header">
             <img src="{{url('images/logo.png')}}" alt="Logo" class="header__logo">
@@ -27,18 +27,18 @@
                 <input type="text" name="cat_name" class="search__field" placeholder="Search over 1,000,000 recipes...">
                 {{--<select name="cat_id" id="" class="search__field">
                     @foreach($category as $item)
-                        <option value="{{$item['id']}}">{{$item['cat_name']}}</option>
+                    <option value="{{$item['id']}}">{{$item['cat_name']}}</option>
                     @endforeach
                 </select>--}}
-            
+                
                 <button type="submit" class="btn search__btn">
-                  <span>Search</span>
+                    <span>Search</span>
                 </button>
             </form>
             <div class="likes">
                 <div class="likes__field">
-                     
-                        {{-- <img src="{{url('images/heart.png')}}" style="width: 30px;height: 30px;margin-left: -20px;" alt=""> --}}
+                    
+                    {{-- <img src="{{url('images/heart.png')}}" style="width: 30px;height: 30px;margin-left: -20px;" alt=""> --}}
                     
                 </div>
                 <div class="likes__panel">
@@ -56,7 +56,7 @@
                             </a>
                         </li>
                         @endforeach
-                   </ul>
+                    </ul>
                 </div>
             </div>
         </header>

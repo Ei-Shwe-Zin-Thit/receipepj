@@ -45,17 +45,17 @@ class Controller extends BaseController
           $length = count($original);
           for ($i = 0; $i < $length; $i++){
               if(!$count[$i]){
-                  if(!$fav[$i]){
+                $a = $original[$i];
+                array_push($non_relevant,$a);
+                array_push($x,$name[$i]);
+              }
+               elseif(!$fav[$i]){
                       $a = $original[$i];
                       array_push($non_relevant,$a);
                       array_push($x,$name[$i]);
                   }
-                  else{
-                      $a = $original[$i];
-                      array_push($non_relevant,$a);
-                      array_push($x,$name[$i]);
-                  }
-              }else{
+                  
+              else{
                       $a = $original[$i];
                       array_push($relevant,$a);
                       array_push($y,$name[$i]);
@@ -123,7 +123,7 @@ class Controller extends BaseController
               'relevant_res'=>$relevant_res,
               'non_relevant_res'=>$non_relevant_res,
               'final_result'=>$final_result,
-                'performance'=>$performance
+              'performance'=>$performance
               ];
       }
   

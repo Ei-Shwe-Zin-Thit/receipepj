@@ -53,7 +53,7 @@
             <div class="recipe__ingredients">
                 <div>
                     <h1 class="display-3"><u>How To Cook</u></h1>
-                    <p>{{$recipe['howtocook']}}</p>
+                    <p>{!! $recipe['howtocook'] !!}</p>
                 </div>
             </div>
 

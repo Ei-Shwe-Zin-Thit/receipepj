@@ -45,6 +45,7 @@ Route::get('catdelete/{id}','CategoryController@destroy');
 // <!-- Receipe -->
 Route::get('recipe','RecipeController@index');
 Route::post('createrecipe','RecipeController@create');
+Route::post('storerecipe','RecipeController@store');
 Route::get('showrecipe','RecipeController@show');
 Route::get('editrecipe/{id}','RecipeController@edit');
 Route::post('updaterecipe/{id}','RecipeController@update');

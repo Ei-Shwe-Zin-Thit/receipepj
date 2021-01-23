@@ -4,8 +4,9 @@
 
     <div class="p-5 text-center text-danger"> <h1>Recipe Add</h1></div>
     <div class="form">
-    <form action="{{url('createrecipe')}}" method="post" enctype="multipart/form-data">
+    <form action="{{url('storerecipe')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
+        @csrf
         <div class="form-group row p-2 justify-content-center">
             <label for="colFormLabel" class="col-sm-2 col-form-label">Recipe Name</label>
             <div class="col-sm-6">
