@@ -126,6 +126,7 @@
                 {{$result['performance']}}
             </ol>
         </div>
+        <a href="{{url('cook/result')}}"><button class="btn btn-danger">Results</button></a>
         
         
     </div>

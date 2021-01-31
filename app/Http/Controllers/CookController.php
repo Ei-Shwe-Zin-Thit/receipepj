@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Recipe;
 use App\Favourite;
+
 use Session;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,6 +57,7 @@ class CookController extends Controller
         
         ->get();
         $reciped=Session::put('reciped',$reciped);
+        $ses_cat_name=Session::put('ses_cat_name',$cat_name);
         $user=Auth::user();
         $category=Category::all();
         $favourite=Favourite::where('user_id',$user->id)->get();
@@ -201,6 +203,18 @@ class CookController extends Controller
                         Recipe::findorfail($recipe_id)->increment('fav');
                         
                         return redirect()->back();
+                        
+                    }
+                    
+                    public function resultIndex(Request $request){
+                        $id=$request->get('cat_id');
+                        $reciped=Recipe::where('cat_id',$id)->get();
+                        $user=Auth::user();
+                        $category=Category::all();
+                        $favourite=Favourite::where('user_id',$user->id)->get();
+                        $obj=new Controller();
+                        $result=$obj->result();
+                        return view('searchcook.result',compact('reciped','favourite','category','result'));
                         
                     }
                 }
